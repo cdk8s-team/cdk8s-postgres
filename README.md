@@ -14,7 +14,7 @@ Install the Postgres Operator using the following [Kustomization](https://github
 kubectl apply -k github.com/zalando/postgres-operator/manifests
 ```
 
-> See [Postgres Operator Quickstart guide](https://postgres-operator.readthedocs.io/en/latest/quickstart/) for more information.
+> See [Postgres Operator Quickstart guide](https://postgres-operator.readthedocs.io/en/latest/quickstart/) for alternative deployment options such as using helm.
 
 ## :rocket: Usage
 
