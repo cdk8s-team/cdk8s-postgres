@@ -1,34 +1,42 @@
 # cdk8s-postgres
 
-> ⚠️ This project is still in development. Not ready for use.
-
 CDK8s construct for deploying postgres clusters using Postgres Operator.
+
+> ⚠️ This project is still in development and is not ready for production use.
 
 ## ❗ Prerequisites
 
 You'll need to have the Postgres Operator installed in your Kubernetes cluster.
 
-See [Postgres Operator Quickstart guide](https://postgres-operator.readthedocs.io/en/latest/quickstart/).
+Install the Postgres Operator using the following [Kustomization](https://github.com/kubernetes-sigs/kustomize) manifest:
 
-## :rocket: Quick start
+```sh
+kubectl apply -k github.com/zalando/postgres-operator/manifests
+```
 
-**1. Add the dependency**
+> See [Postgres Operator Quickstart guide](https://postgres-operator.readthedocs.io/en/latest/quickstart/) for more information.
+
+## :rocket: Usage
+
+**1. Add this package as a dependency**
 
 ```ts
 npm install cdk8s-postgres
 ```
 
-**2. Initialize the Postgres construct**
+**2. Initialize a Postgres Cluster**
+
+The `Cluster` construct provisions a new Postgres cluster that will be managed by the Postgres Operator.
 
 ```ts
 import { Cluster } from 'cdk8s-postgres';
 
-new Cluster(this, 'my-postgres', {
+new Cluster(this, 'my-postgres-cluster', {
   team: 'goldfish', // Creates a team that will have access to the postgres-cluster
 });
 ```
 
-## Connect to the database
+## :satellite: Connect to the database
 
 1. Forward the port to your local machine
 
@@ -54,6 +62,16 @@ export PGPASSWORD=$(kubectl get secret $PGUSERNAME.$CLUSTER_NAME.credentials.pos
 export PGSSLMODE=require
 psql -U $PGUSERNAME -h localhost -p 6432
 ```
+
+## :door: Using escape hatches
+
+You can utilize escape hatches to make changes to the configurations that are not yet exposed by the library.
+
+For more information regarding escape hatches, take a look at [cdk8s documentation](https://cdk8s.io/docs/latest/concepts/escape-hatches/).
+
+## :lock: Security
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for more information.
 
 ## :classical_building: License
 
