@@ -117,7 +117,6 @@ Any object.
 | <code><a href="#cdk8s-postgres.Cluster.property.clusterName">clusterName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk8s-postgres.Cluster.property.team">team</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk8s-postgres.Cluster.property.databases">databases</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
-| <code><a href="#cdk8s-postgres.Cluster.property.labels">labels</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
 | <code><a href="#cdk8s-postgres.Cluster.property.namespace">namespace</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk8s-postgres.Cluster.property.users">users</a></code> | <code>{[ key: string ]: <a href="#cdk8s-postgres.User">User</a>}</code> | *No description.* |
 
@@ -165,16 +164,6 @@ public readonly databases: {[ key: string ]: string};
 
 ---
 
-##### `labels`<sup>Optional</sup> <a name="labels" id="cdk8s-postgres.Cluster.property.labels"></a>
-
-```typescript
-public readonly labels: {[ key: string ]: string};
-```
-
-- *Type:* {[ key: string ]: string}
-
----
-
 ##### `namespace`<sup>Optional</sup> <a name="namespace" id="cdk8s-postgres.Cluster.property.namespace"></a>
 
 ```typescript
@@ -215,7 +204,6 @@ const clusterProps: ClusterProps = { ... }
 | <code><a href="#cdk8s-postgres.ClusterProps.property.team">team</a></code> | <code>string</code> | Name of the team that the cluster belongs to. |
 | <code><a href="#cdk8s-postgres.ClusterProps.property.databases">databases</a></code> | <code>{[ key: string ]: string}</code> | A map of database names to users who own the database. |
 | <code><a href="#cdk8s-postgres.ClusterProps.property.instances">instances</a></code> | <code>number</code> | The number of Postgres database instances to create. |
-| <code><a href="#cdk8s-postgres.ClusterProps.property.labels">labels</a></code> | <code>{[ key: string ]: string}</code> | Labels to apply to all Postgres resources. |
 | <code><a href="#cdk8s-postgres.ClusterProps.property.namespace">namespace</a></code> | <code>string</code> | Namespace where the operator creates all Postgres resources. |
 | <code><a href="#cdk8s-postgres.ClusterProps.property.size">size</a></code> | <code>string</code> | The size of the target volume. |
 | <code><a href="#cdk8s-postgres.ClusterProps.property.users">users</a></code> | <code>{[ key: string ]: <a href="#cdk8s-postgres.User">User</a>}</code> | Users to register with the cluster. |
@@ -266,19 +254,6 @@ public readonly instances: number;
 - *Default:* 1
 
 The number of Postgres database instances to create.
-
----
-
-##### `labels`<sup>Optional</sup> <a name="labels" id="cdk8s-postgres.ClusterProps.property.labels"></a>
-
-```typescript
-public readonly labels: {[ key: string ]: string};
-```
-
-- *Type:* {[ key: string ]: string}
-- *Default:* { app: "postgres" }
-
-Labels to apply to all Postgres resources.
 
 ---
 

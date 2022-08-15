@@ -31,8 +31,8 @@
     "projen": "npx projen"
   },
   "author": {
-    "name": "Ryan Parker",
-    "email": "parkerzr@amazon.com",
+    "name": "Amazon Web Services",
+    "url": "https://aws.amazon.com",
     "organization": false
   },
   "devDependencies": {
@@ -72,6 +72,10 @@
   "license": "Apache-2.0",
   "version": "0.0.0",
   "jest": {
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "src/imports/*"
+    ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.ts?(x)",
       "<rootDir>/(test|src)/**/?(*.)+(spec|test).ts?(x)"
@@ -86,9 +90,6 @@
       "text"
     ],
     "coverageDirectory": "coverage",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ],
     "testPathIgnorePatterns": [
       "/node_modules/"
     ],
