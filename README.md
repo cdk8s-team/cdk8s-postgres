@@ -31,9 +31,7 @@ The `Cluster` construct provisions a new Postgres cluster that will be managed b
 ```ts
 import { Cluster } from 'cdk8s-postgres';
 
-new Cluster(this, 'my-postgres-cluster', {
-  team: 'goldfish', // Creates a team that will have access to the postgres-cluster
-});
+new Cluster(this, 'my-postgres-cluster');
 ```
 
 ## :satellite: Connect to the database

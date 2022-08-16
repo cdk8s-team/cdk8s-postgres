@@ -9,7 +9,7 @@
 ```typescript
 import { Cluster } from 'cdk8s-postgres'
 
-new Cluster(scope: Construct, id: string, props: ClusterProps)
+new Cluster(scope: Construct, id: string, props?: ClusterProps)
 ```
 
 | **Name** | **Type** | **Description** |
@@ -32,7 +32,7 @@ new Cluster(scope: Construct, id: string, props: ClusterProps)
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="cdk8s-postgres.Cluster.Initializer.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="props" id="cdk8s-postgres.Cluster.Initializer.parameter.props"></a>
 
 - *Type:* <a href="#cdk8s-postgres.ClusterProps">ClusterProps</a>
 
@@ -43,7 +43,7 @@ new Cluster(scope: Construct, id: string, props: ClusterProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk8s-postgres.Cluster.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#cdk8s-postgres.Cluster.userCredentials">userCredentials</a></code> | Returns the credentials secret for the given user. |
+| <code><a href="#cdk8s-postgres.Cluster.userCredentials">userCredentials</a></code> | Returns a secret containing the credentials for a given user. |
 
 ---
 
@@ -61,7 +61,7 @@ Returns a string representation of this construct.
 public userCredentials(username: string): ISecret
 ```
 
-Returns the credentials secret for the given user.
+Returns a secret containing the credentials for a given user.
 
 ###### `username`<sup>Required</sup> <a name="username" id="cdk8s-postgres.Cluster.userCredentials.parameter.username"></a>
 
@@ -115,10 +115,11 @@ Any object.
 | --- | --- | --- |
 | <code><a href="#cdk8s-postgres.Cluster.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#cdk8s-postgres.Cluster.property.clusterName">clusterName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk8s-postgres.Cluster.property.team">team</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk8s-postgres.Cluster.property.databases">databases</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
-| <code><a href="#cdk8s-postgres.Cluster.property.namespace">namespace</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk8s-postgres.Cluster.property.team">team</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk8s-postgres.Cluster.property.users">users</a></code> | <code>{[ key: string ]: <a href="#cdk8s-postgres.User">User</a>}</code> | *No description.* |
+| <code><a href="#cdk8s-postgres.Cluster.property.namespace">namespace</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk8s-postgres.Cluster.property.size">size</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -144,6 +145,16 @@ public readonly clusterName: string;
 
 ---
 
+##### `databases`<sup>Required</sup> <a name="databases" id="cdk8s-postgres.Cluster.property.databases"></a>
+
+```typescript
+public readonly databases: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+---
+
 ##### `team`<sup>Required</sup> <a name="team" id="cdk8s-postgres.Cluster.property.team"></a>
 
 ```typescript
@@ -154,13 +165,13 @@ public readonly team: string;
 
 ---
 
-##### `databases`<sup>Optional</sup> <a name="databases" id="cdk8s-postgres.Cluster.property.databases"></a>
+##### `users`<sup>Required</sup> <a name="users" id="cdk8s-postgres.Cluster.property.users"></a>
 
 ```typescript
-public readonly databases: {[ key: string ]: string};
+public readonly users: {[ key: string ]: User};
 ```
 
-- *Type:* {[ key: string ]: string}
+- *Type:* {[ key: string ]: <a href="#cdk8s-postgres.User">User</a>}
 
 ---
 
@@ -174,13 +185,13 @@ public readonly namespace: string;
 
 ---
 
-##### `users`<sup>Optional</sup> <a name="users" id="cdk8s-postgres.Cluster.property.users"></a>
+##### `size`<sup>Optional</sup> <a name="size" id="cdk8s-postgres.Cluster.property.size"></a>
 
 ```typescript
-public readonly users: {[ key: string ]: User};
+public readonly size: string;
 ```
 
-- *Type:* {[ key: string ]: <a href="#cdk8s-postgres.User">User</a>}
+- *Type:* string
 
 ---
 
@@ -201,30 +212,13 @@ const clusterProps: ClusterProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk8s-postgres.ClusterProps.property.team">team</a></code> | <code>string</code> | Name of the team that the cluster belongs to. |
-| <code><a href="#cdk8s-postgres.ClusterProps.property.databases">databases</a></code> | <code>{[ key: string ]: string}</code> | A map of database names to users who own the database. |
+| <code><a href="#cdk8s-postgres.ClusterProps.property.databases">databases</a></code> | <code>{[ key: string ]: string}</code> | A mapping of Database names to usernames of users assigned to the database. |
 | <code><a href="#cdk8s-postgres.ClusterProps.property.instances">instances</a></code> | <code>number</code> | The number of Postgres database instances to create. |
 | <code><a href="#cdk8s-postgres.ClusterProps.property.namespace">namespace</a></code> | <code>string</code> | Namespace where the operator creates all Postgres resources. |
 | <code><a href="#cdk8s-postgres.ClusterProps.property.size">size</a></code> | <code>string</code> | The size of the target volume. |
+| <code><a href="#cdk8s-postgres.ClusterProps.property.team">team</a></code> | <code>string</code> | Name of the team that the cluster belongs to. |
 | <code><a href="#cdk8s-postgres.ClusterProps.property.users">users</a></code> | <code>{[ key: string ]: <a href="#cdk8s-postgres.User">User</a>}</code> | Users to register with the cluster. |
 | <code><a href="#cdk8s-postgres.ClusterProps.property.version">version</a></code> | <code><a href="#cdk8s-postgres.PostgresVersion">PostgresVersion</a></code> | Postgres Version Defaults to latest version. |
-
----
-
-##### `team`<sup>Required</sup> <a name="team" id="cdk8s-postgres.ClusterProps.property.team"></a>
-
-```typescript
-public readonly team: string;
-```
-
-- *Type:* string
-
-Name of the team that the cluster belongs to.
-
-You cannot change this after the
-cluster is created. Clusters will be prefixed with this team id.
-
-The name will be lower cased.
 
 ---
 
@@ -237,10 +231,10 @@ public readonly databases: {[ key: string ]: string};
 - *Type:* {[ key: string ]: string}
 - *Default:* if not provided the default database will be created with the name "postgres". If no users are provided for the cluster it will be assigned to the default user "postgres".
 
-A map of database names to users who own the database.
+A mapping of Database names to usernames of users assigned to the database.
 
-The owner users should already
-exist on the cluster (i.e. mentioned in the user parameter).
+The assigned user should already
+exist on the cluster (i.e. defined in the "users" option).
 
 ---
 
@@ -286,6 +280,24 @@ public readonly size: string;
 The size of the target volume.
 
 Can be in Gi or Mi units.
+
+---
+
+##### `team`<sup>Optional</sup> <a name="team" id="cdk8s-postgres.ClusterProps.property.team"></a>
+
+```typescript
+public readonly team: string;
+```
+
+- *Type:* string
+- *Default:* ID of the construct.
+
+Name of the team that the cluster belongs to.
+
+You cannot change this after the
+cluster is created. Clusters will be prefixed with this team id.
+
+The name will be lower cased.
 
 ---
 

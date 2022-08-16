@@ -11,6 +11,9 @@ const project = new cdk8s.ConstructLibraryCdk8s({
   peerDeps: [
     'cdk8s-plus-24',
   ],
+  devDeps: [
+    'type-fest',
+  ],
   jestOptions: {
     jestConfig: {
       coveragePathIgnorePatterns: [
