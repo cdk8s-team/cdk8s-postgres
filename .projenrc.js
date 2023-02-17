@@ -1,18 +1,17 @@
-const { cdk8s, DependencyType } = require('projen');
-const project = new cdk8s.ConstructLibraryCdk8s({
-  author: 'Ryan Parker',
-  authorAddress: 'parkerzr@amazon.com',
-  cdk8sVersion: '2.3.21',
+const { Cdk8sTeamJsiiProject } = require('@cdk8s/projen-common');
+
+const project = new Cdk8sTeamJsiiProject({
   defaultReleaseBranch: 'main',
   name: 'cdk8s-postgres',
-  repositoryUrl: 'git@github.com:cdk8s-team/cdk8s-postgres.git',
   peerDeps: [
+    'cdk8s',
+    'constructs',
     'cdk8s-plus-24',
   ],
+  devDeps: [
+    '@cdk8s/projen-common',
+  ],
   description: 'CDK8s construct for deploying postgres clusters using Postgres Operator.',
-  packageName: 'cdk8s-postgres',
 });
-project.deps.removeDependency('constructs', DependencyType.PEER);
-project.deps.addDependency('constructs', DependencyType.PEER);
-project.tryRemoveFile('.DS_Store');
+
 project.synth();
