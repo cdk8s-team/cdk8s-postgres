@@ -25,7 +25,8 @@
     "pre-compile": "npx projen pre-compile",
     "test": "npx projen test",
     "test:watch": "npx projen test:watch",
-    "upgrade": "npx projen upgrade",
+    "upgrade-configuration": "npx projen upgrade-configuration",
+    "upgrade-dependencies": "npx projen upgrade-dependencies",
     "watch": "npx projen watch",
     "projen": "npx projen"
   },
@@ -35,14 +36,14 @@
     "organization": false
   },
   "devDependencies": {
-    "@cdk8s/projen-common": "^0.0.339",
+    "@cdk8s/projen-common": "^0.0.348",
     "@types/jest": "^27",
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "cdk8s": "2.7.61",
-    "cdk8s-plus-24": "2.7.28",
-    "constructs": "10.2.24",
+    "cdk8s": "2.7.72",
+    "cdk8s-plus-24": "2.7.35",
+    "constructs": "10.2.31",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.7",
     "eslint-import-resolver-typescript": "^3.5.5",
@@ -54,18 +55,18 @@
     "jsii-docgen": "^7.2.9",
     "jsii-pacmak": "^1.81.0",
     "npm-check-updates": "^16",
-    "projen": "^0.71.55",
+    "projen": "^0.71.66",
     "ts-jest": "^27",
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "cdk8s": "^2.7.61",
-    "cdk8s-plus-24": "^2.7.28",
-    "constructs": "^10.2.24"
+    "cdk8s": "^2.7.72",
+    "cdk8s-plus-24": "^2.7.35",
+    "constructs": "^10.2.31"
   },
   "resolutions": {
-    "@types/prettier": "2.6.0",
-    "@types/babel__traverse": "7.18.2"
+    "@types/babel__traverse": "7.18.2",
+    "@types/prettier": "2.6.0"
   },
   "engines": {
     "node": ">= 14.18.0"
