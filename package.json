@@ -63,9 +63,9 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "cdk8s": "^2.66.5",
+    "cdk8s": "^2.66.8",
     "cdk8s-plus-24": "^2.12.1",
-    "constructs": "^10.2.70"
+    "constructs": "^10.3.0"
   },
   "resolutions": {
     "@types/babel__traverse": "7.18.2",
