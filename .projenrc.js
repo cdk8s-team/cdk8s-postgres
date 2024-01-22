@@ -3,7 +3,6 @@ const { Cdk8sTeamJsiiProject } = require('@cdk8s/projen-common');
 const project = new Cdk8sTeamJsiiProject({
   defaultReleaseBranch: 'main',
   minNodeVersion: '14.18.0',
-  workflowNodeVersion: '16.20.0',
   release: false,
   name: 'cdk8s-postgres',
   peerDeps: [
