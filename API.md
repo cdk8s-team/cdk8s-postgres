@@ -1,7 +1,3 @@
-# cdk8s-postgres
-
-> Under development. Not yet published.
-
 # API Reference <a name="API Reference" id="api-reference"></a>
 
 
