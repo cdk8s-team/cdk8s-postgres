@@ -47,7 +47,7 @@
     "cdk8s-plus-24": "2.12.1",
     "constructs": "10.3.0",
     "eslint": "^8",
-    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-import": "^2.29.1",
     "jest": "^27",
     "jest-junit": "^15",
